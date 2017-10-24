@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+@using System.Web.Optimization;
+<html>
+<head>
+    <link rel="shorcout icon" href="~/Imagenes/logo.ico"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - EasyPregunto</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    
+    <link href="~/Content/Style.css" rel="stylesheet" />
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryvalunobtrusive")
+
+    @Scripts.Render("~/Content/css")
+</head>
+<body>
+    <nav style="background-color:white" class="navbar navbar-default" role="navigation" >
+        <ul class="nav-justified">
+            <li><p class="site-title">
+                <a href="@Url.Action("Inicio", "Home")">
+                    <img src="/Imagenes/logo.png" alt="Logo" />
+                </a>
+            </p></li>
+            <li>@Html.ActionLink("Ingresar", "Index", "Home")</li>
+            <li class="btn btn-danger">@Html.ActionLink("Registrarse", "Registrase", "Home")</li>
+            
+            @{              
+                if(!string.IsNullOrEmpty(ViewBag.usuario))
+                {
+                    <li>Bienvenido: @ViewBag.usuario</li>
+                    <li>@Html.ActionLink("Salir", "Index", "Home")</li>
+                }
+            }
+        </ul>
+    </nav>
+
+        @RenderBody()
+
+    <footer>    
+        <p>&copy; EasyPregunto 2017</p>
+    </footer>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
+    <link href="~/Content/bootstrap-datetimepicker.min.css" rel="stylesheet"/>
+
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+﻿@model WebApplication2.Models.RegistrarseVO
+
+@{
+    ViewBag.Title = "Registrase";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="card-container">
+        <h3 class="label label-default">Registrase</h3>
+        @using (Html.BeginForm("Registrase", "Home", FormMethod.Post, new { @class = "form-signin" }))
+        {
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div>
+                @Html.TextBoxFor(a => a.nombre, new { @class = "form-control", @placeholder = "Nombre" })
+                @Html.ValidationMessageFor(a => a.nombre, "", new { @class = "text-danger" })
+            </div>
+            <div>
+                @Html.TextBoxFor(a => a.apellido, new { @class = "form-control", @placeholder = "Apellido" })
+                @Html.ValidationMessageFor(a => a.apellido, "", new { @class = "text-danger" })
+            </div>
+            <div>
+                @Html.TextBoxFor(a => a.Nombreusuario, new { @class = "form-control", @placeholder = "Nick Name" })
+                @Html.ValidationMessageFor(a => a.Nombreusuario, "", new { @class = "text-danger" })
+            </div>
+            <div>
+                @Html.TextBoxFor(a => a.CorreoElectronico, new { @class = "form-control", @placeholder = "Correo Electronico" })
+                @Html.ValidationMessageFor(a => a.CorreoElectronico, "", new { @class = "text-danger" })
+            </div>
+            <div>
+                @Html.PasswordFor(a => a.contraseña, new { @class = "form-control", @placeholder = "Contraseña" })
+                @Html.ValidationMessageFor(a => a.contraseña, "", new { @class = "text-danger" })
+            </div>
+            <div>
+                @Html.EditorFor(a => a.fechaNacimiento, new { htmlAttributes = new { @class = "form-control datepicker", @placeholder = "Fecha de nacimiento: dd/mm/aa" } })
+                @Html.ValidationMessageFor(a => a.fechaNacimiento, "", new { @class = "text-danger" })
+            </div>
+            <div>
+                @Html.TextBoxFor(a => a.ubicacion, new { htmlAttributes = new { @class = "form-control datepicker", @placeholder = "Fecha de nacimiento: dd/mm/aa" } })
+                @Html.ValidationMessageFor(a => a.ubicacion, "", new { @class = "text-danger" })
+            </div>
+            if (!string.IsNullOrEmpty(ViewBag.Message))
+            {
+                <p>@ViewBag.Message</p>
+            }
+
+            <input type="submit" value="Registrarse" class="btn btn-signin">
+        }
+        @Html.ActionLink("Iniciar Sessión", "Index", "Home")
+    </div>
+</div>

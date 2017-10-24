@@ -1,0 +1,37 @@
+﻿@model WebApplication2.Models.UsuarioVO
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml"; // este es el layout o pagina maestra
+}
+
+<div class="container">
+    <div class="card card-container">
+        <h2 class="tituloLogin">Iniciar Sesión</h2>
+        @Html.ValidationSummary(true,"",new {@class = "text-danger" })
+@using (Html.BeginForm("Usuarios","Home",FormMethod.Post, new {@class = "form-signin" })) // se crea el formulario
+{
+    <div>
+        @Html.TextBoxFor(a => a.Correo_Electronico_Usuario, new {@class = "form-control", @placeholder = "Email"})
+        @Html.ValidationMessageFor(a => a.Correo_Electronico_Usuario,"",new { @class = "text-danger"})              
+    </div>//creacion de la caja de texto que captura el email
+
+
+    <div>
+        @Html.PasswordFor(a => a.Clave_Usuario, new { @class = "form-control", @placeholder = "Contraseña" })
+        @Html.ValidationMessageFor(a => a.Correo_Electronico_Usuario, "", new { @class = "text-danger" })
+    </div><br />//creacion de la caja de texto que captura la clave
+
+    <input  type="submit" value="Ingresar" class="btn btn-primary" />
+}<br />
+@Html.ActionLink("Registrarse","Registrase","Home")
+@if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+    <script type="text/javascript">
+        alert("Email o Contraseña incorrecto");
+        </script>
+}
+        
+    </div>
+</div>
+

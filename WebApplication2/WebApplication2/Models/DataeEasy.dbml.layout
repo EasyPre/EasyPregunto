@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DataeEasy">
+  <DataContextMoniker Name="/DataeEasyDataContext" />
+  <nestedChildShapes>
+    <classShape Id="c2332f07-1890-41cc-882d-b8a172375fab" absoluteBounds="3.875, 0.75, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/DataeEasyDataContext/Usuario" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ad9a857d-4668-4ab8-b078-3a2e9d2067c5" absoluteBounds="3.89, 1.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c091e8b8-a9de-4bc3-889b-cefbc308a255" absoluteBounds="7.625, 1.5, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/DataeEasyDataContext/Estado_Sesion" />
+      <nestedChildShapes>
+        <elementListCompartment Id="afcb980f-0014-493a-8fa4-a30b5affff4f" absoluteBounds="7.64, 1.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.875 : 2.20274983723958); (7.625 : 2.20274983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataeEasyDataContext/Usuario/Usuario_Estado_Sesion" />
+      <nodes>
+        <classShapeMoniker Id="c2332f07-1890-41cc-882d-b8a172375fab" />
+        <classShapeMoniker Id="c091e8b8-a9de-4bc3-889b-cefbc308a255" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="aa086225-0bb1-44a0-99f0-f26e1715586d" absoluteBounds="4, 5.5, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/DataeEasyDataContext/Area_Conocimiento" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3098f71e-9084-460d-801b-c67d4d1a3da8" absoluteBounds="4.0150000000000006, 5.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6ba43728-8bfe-494b-b428-73e61b8a47eb" absoluteBounds="1.125, 1.125, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/DataeEasyDataContext/Tipo_Documento" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4ebd2cda-6665-4d15-b23d-c3ec54ff2407" absoluteBounds="1.1399999999999997, 1.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4c2e261c-6b4f-4392-a364-b53758103048" absoluteBounds="7, 5.375, 2, 1.3862939453125">
+      <DataClassMoniker Name="/DataeEasyDataContext/Sub_area" />
+      <nestedChildShapes>
+        <elementListCompartment Id="665d4895-6bab-4832-a506-a788ca04af00" absoluteBounds="7.015, 5.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6 : 6.09699625651042); (7 : 6.09699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataeEasyDataContext/Area_Conocimiento/Area_Conocimiento_Sub_area" />
+      <nodes>
+        <classShapeMoniker Id="aa086225-0bb1-44a0-99f0-f26e1715586d" />
+        <classShapeMoniker Id="4c2e261c-6b4f-4392-a364-b53758103048" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.96875 : 5.5); (5.96875 : 3.1194482421875); (7.625 : 3.1194482421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataeEasyDataContext/Area_Conocimiento/Area_Conocimiento_Estado_Sesion" />
+      <nodes>
+        <classShapeMoniker Id="aa086225-0bb1-44a0-99f0-f26e1715586d" />
+        <classShapeMoniker Id="c091e8b8-a9de-4bc3-889b-cefbc308a255" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

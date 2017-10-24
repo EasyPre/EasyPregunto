@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+@using System.Web.Optimization;
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - EasyPregunto</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryvalunobtrusive")
+
+    @Scripts.Render("~/Content/css")
+    @{
+
+    }
+    <style>
+        body {
+            font-family: 'Buxton Sketch';
+            font-size: 20px;
+        }
+
+        img {
+            width: 304px;
+            height: 50px;
+            margin: auto;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: none;
+        }
+
+        li {
+            float: left;
+            border-right: 1px solid white;
+            font-size: 20px;
+        }
+
+            li:last-child {
+                border-right: none;
+            }
+
+        .a {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+            .a:hover:not(.active) {
+                background-color: greenyellow;
+                padding: 14px 16px;
+            }
+
+        .active {
+            background-color: white;
+        }
+
+        footer {
+            width: 1350px;
+            height: 130px;
+            background-color: #e9f8ee;
+            content: inherit;
+            margin: auto;
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a class="active" href="@Url.Action("Usuarios", "Home")"><img src="/Imagenes/logo.png" alt="Logo" /></a></li>
+                <li class="a" style="margin-left:150px">@Html.ActionLink("Mi Cuenta", "MiCuenta", "Usuario")</li>
+                <li style="margin-left:50px; margin-top:15px">Bienvenido: @Session["usuarioconectado"]</li>
+                <li class="a" style="float:right">@Html.ActionLink("Salir", "Index", "Home")</li>
+            </ul>
+        </nav>
+    </header>
+
+    @RenderBody()
+
+
+    <footer>
+        <center>
+            <ul style="margin-left: 450px;">
+                <li style="margin:5px"><a href=""> Contactar </a></li>
+                <li style="margin:5px"><a href=""> Trabaje con nosotros </a></li>
+                <li style="margin:5px"><a href=""> Desarrolladores </a></li>
+                <li style="margin:5px"><a href=""> Legal </a></li>
+            </ul><br />
+        </center>
+        <p style="margin-left: 460px">&copy; 2017 ,EasyPregunto. Todos los derechos reservados</p>
+    </footer>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
+    <link href="~/Content/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+
+
+</body>
+</html>

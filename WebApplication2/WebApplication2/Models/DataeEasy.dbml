@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="EasyPregunto" Class="DataeEasyDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=FAMILIA-PC\ADSI;Initial Catalog=EasyPregunto;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="EasyPreguntoConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Usuario" Member="Usuario">
+    <Type Name="Usuario">
+      <Column Name="Id_Usuario" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre_Usuario" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Apellidos_Usuario" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Correo_Electronico_Usuario" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Clave_Usuario" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Alias_Usuario" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Rol" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Usuario_Estado_Sesion" Member="Estado_Sesion" ThisKey="Id_Usuario" OtherKey="Usuario" Type="Estado_Sesion" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Estado_Sesion" Member="Estado_Sesion">
+    <Type Name="Estado_Sesion">
+      <Column Name="Id_Estado_Sesion" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Estado" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Usuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Tutor" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Member="idarea" Type="System.Int32" CanBeNull="false" />
+      <Association Name="Usuario_Estado_Sesion" Member="Usuario1" ThisKey="Usuario" OtherKey="Id_Usuario" Type="Usuario" IsForeignKey="true" />
+      <Association Name="Area_Conocimiento_Estado_Sesion" Member="Area_Conocimiento" ThisKey="idarea" OtherKey="Id_Area" Type="Area_Conocimiento" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Area_Conocimiento" Member="Area_Conocimiento">
+    <Type Name="Area_Conocimiento">
+      <Column Name="Id_Area" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre_Area" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="Area_Conocimiento_Sub_area" Member="Sub_area" ThisKey="Id_Area" OtherKey="Area" Type="Sub_area" />
+      <Association Name="Area_Conocimiento_Estado_Sesion" Member="Estado_Sesion" ThisKey="Id_Area" OtherKey="idarea" Type="Estado_Sesion" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tipo_Documento" Member="Tipo_Documento">
+    <Type Name="Tipo_Documento">
+      <Column Name="Id_Documento" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre_Documento" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sub_area" Member="Sub_area">
+    <Type Name="Sub_area">
+      <Column Name="Id_Sub_Area" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre_Sub" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Area" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Area_Conocimiento_Sub_area" Member="Area_Conocimiento" ThisKey="Area" OtherKey="Id_Area" Type="Area_Conocimiento" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.SubArea" Method="SubArea">
+    <Parameter Name="Id_Area" Parameter="id_Area" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SubAreaResult">
+      <Column Name="Nombre_Sub" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>
